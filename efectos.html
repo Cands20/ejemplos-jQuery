@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Efectos</title>
+    <script src="jquery-3.1.1.min.js"> </script>
+    <style>
+        .caja{
+            background-color: lawngreen;
+            width: 640px;
+            height: 480px;
+        }
+
+        .pelota{
+            background-color: chocolate;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .caja, .pelota{
+            border: black solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de efectos en jQuery</h1>
+    <h2>Ocultar y mostrar</h2>
+    <button id ="btn-ocultar">Ocultar</button>
+    <button id ="btn-mostrar">mostrar</button>
+    <button id ="btn-alternar">alternar</button>
+    <p id="parrafo1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Modi impedit, animi totam eos expedita, voluptates laboriosam nisi vel voluptatibus libero,
+          cum vitae fugit alias minima beatae facilis adipisci ut numquam.</p>
+
+    <h2>Fundido Gradual</h2>
+    <button id ="btn-desaparecer">FadeOut</button>
+    <button id ="btn-aparecer">fadeIn</button>
+    <button id ="btn-alternar-fundido">fadeToggle</button>
+    <button id ="btn-fundido-hasta">FadeTo</button>
+    <p id="parrafo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Modi impedit, animi totam eos expedita, voluptates laboriosam nisi vel voluptatibus libero,
+          cum vitae fugit alias minima beatae facilis adipisci ut numquam.</p>
+
+    <h2>Deslizamiento</h2>
+    <button id ="btn-arriba">slideUP</button>
+    <button id ="btn-abajo">slideDonw</button>
+    <button id ="btn-alternado">slideToggle</button>
+    
+    <p id="parrafo3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Modi impedit, animi totam eos expedita, voluptates laboriosam nisi vel voluptatibus libero,
+          cum vitae fugit alias minima beatae facilis adipisci ut numquam.</p>
+
+    <h2>Animacion</h2>
+    <div class="caja">
+        <div class="pelota">
+
+        </div>
+    </div>
+<script>
+    $(function(){
+        //Ejemplo de Animacion
+        $('.pelota').click(function(){
+            $(this).animate({
+                /*width: '100px',
+                height: '100px'*/
+                left:'580px',
+                top: '400px'
+            },3000,'swing').animate({left:'10px', top:'0px'}, 3000, 'swing')
+            
+        })
+
+
+        //ejemplo Deslizamiento
+        $('#btn-ocultar').click(function(){
+            $('#parrafo1').hide('slow','linear');
+        })
+
+        $('#btn-mostrar').click(function(){
+            $('#parrafo1').show('fast');
+        })
+
+        $('#btn-alternar').click(function(){
+            $('#parrafo1').toggle(1000);
+            })
+        
+        $('#btn-desaparecer').click(function(){
+            $('#parrafo2').fadeOut('slow');
+        })
+
+        $('#btn-aparecer').click(function(){
+            $('#parrafo2').fadeIn('slow');
+        })
+
+        $('#btn-alternar-fundido').click(function(){
+            $('#parrafo2').fadeToggle('slow');
+            })      
+
+        $('#btn-fundido-hasta').click(function(){
+            $('#parrafo2').fadeTo('slow',0.5);
+            })  
+
+        $('#btn-arriba').click(function(){
+            $('#parrafo3').slideUp('slow');
+        })
+
+        $('#btn-abajo').click(function(){
+            $('#parrafo3').slideDown('slow');
+            })      
+
+        $('#btn-alternado').click(function(){
+            $('#parrafo3').slideToggle('slow');
+            })      
+        });
+</script>
+</body>
+</html>
